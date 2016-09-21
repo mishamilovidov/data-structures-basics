@@ -26,6 +26,20 @@ namespace ConsoleApplication
                 line.Enqueue(randomName());
             }
 
+            for (int i = 0; i < 100; i++){
+
+                string person = line.Dequeue();
+                int hamburgers = randomNumberInRange();
+                
+                lineDictionary.Add(person, hamburgers);
+            }
+
+            // dictBurgers.Add(Customer, randomNumberInRange());
+
+            // Same as:
+
+            // dictBurgers[Customer] = randomNumberInRange();
+
             // IEnumerator<string> LineEnumerator = line.GetEnumerator();
 
             // while (LineEnumerator.MoveNext())
@@ -33,7 +47,6 @@ namespace ConsoleApplication
             //     string myValue = LineEnumerator.Current;
             // }
 
-            Console.WriteLine("Hello World!");
             Console.Read();
         }
     }
