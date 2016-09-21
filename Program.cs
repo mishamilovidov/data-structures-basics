@@ -1,6 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
+/*
+ *  Name:           Misha Milovidov
+ *  Date:           2016.09.14
+ *  GitHub Repo:    https://github.com/mmilovidov/soccer-tournament.git
+ *  Description:    
+ */
+
 namespace ConsoleApplication
 {
     public class Program
@@ -26,26 +33,19 @@ namespace ConsoleApplication
                 line.Enqueue(randomName());
             }
 
-            for (int i = 0; i < 100; i++){
+            foreach (string Customer in line) {
 
-                string person = line.Dequeue();
-                int hamburgers = randomNumberInRange();
-                
-                lineDictionary.Add(person, hamburgers);
+                if(!lineDictionary.ContainsKey(Customer)){
+                    lineDictionary.Add(Customer, 0);
+                }
+
+                lineDictionary[Customer] += randomNumberInRange();
             }
 
-            // dictBurgers.Add(Customer, randomNumberInRange());
+            foreach (var Customer in lineDictionary) {
 
-            // Same as:
-
-            // dictBurgers[Customer] = randomNumberInRange();
-
-            // IEnumerator<string> LineEnumerator = line.GetEnumerator();
-
-            // while (LineEnumerator.MoveNext())
-            // {
-            //     string myValue = LineEnumerator.Current;
-            // }
+                Console.WriteLine(Customer.Key + "\t\t " + Customer.Value);
+            }
 
             Console.Read();
         }
